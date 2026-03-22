@@ -1,0 +1,67 @@
+// server/data.js
+const nodes = [
+  {
+    id: "JE_9400635958",
+    type: "Journal Entry",
+    details: {
+      Entity: "Journal Entry",
+      CompanyCode: "1010",
+      FiscalYear: "2025",
+      AccountingDocument: "9400635958",
+      GLAccount: "15500020",
+      ReferenceDocument: "91150187",
+      CostCenter: "CC_NORTH",
+      ProfitCenter: "PC_ENGINES",
+      TransactionCurrency: "INR",
+      AmountInTransactionCurrency: "-1167",
+      CompanyCodeCurrency: "INR",
+      AmountInCompanyCodeCurrency: "-1167",
+      PostingDate: "2025-04-02T00:00:00Z",
+      DocumentDate: "2025-04-02T00:00:00Z",
+      AccountingDocumentType: "RV",
+      AccountingDocumentItem: "1"
+    }
+  },
+  {
+    id: "BD_91150187",
+    type: "Billing Document",
+    details: {
+      Entity: "Billing Document",
+      BillingDocument: "91150187",
+      Payer: "CUST_001",
+      BillingDate: "2025-04-01T00:00:00Z",
+      SalesOrganization: "SO_GLOBAL",
+      DistributionChannel: "10",
+      Division: "00",
+      NetAmount: "1167",
+      Currency: "INR"
+    }
+  },
+  {
+    id: "SO_45001234",
+    type: "Sales Order",
+    details: {
+      SalesOrder: "45001234",
+      SoldToParty: "CUST_001",
+      CreationDate: "2025-03-25T00:00:00Z",
+      OverallStatus: "Completed"
+    }
+  },
+  {
+    id: "DL_80005678",
+    type: "Outbound Delivery",
+    details: {
+      Delivery: "80005678",
+      ShipToParty: "CUST_001",
+      DeliveryDate: "2025-03-28T00:00:00Z"
+    }
+  }
+];
+
+const edges = [
+  { source: "SO_45001234", target: "DL_80005678", label: "delivered_by" },
+  { source: "DL_80005678", target: "BD_91150187", label: "billed_by" },
+  { source: "BD_91150187", target: "JE_9400635958", label: "related_to" }
+];
+
+module.exports = { nodes, edges };
