@@ -10,6 +10,8 @@ const ChatSidebar = () => {
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
+
     const handleSend = async () => {
         if (!input.trim()) return;
 
@@ -19,7 +21,7 @@ const ChatSidebar = () => {
         setIsLoading(true);
 
         try {
-            const res = await axios.post('http://localhost:4000/api/chat', { message: input });
+            const res = await axios.post(`${API_URL}/api/chat`, { message: input });
             setMessages(prev => [...prev, { role: 'bot', text: res.data.response }]);
         } catch (err) {
             console.error(err);

@@ -4,9 +4,12 @@ const cors = require('cors');
 const { nodes, edges } = require('./data');
 
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
-app.use(cors());
+app.use(cors({
+    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+    credentials: true
+}));
 app.use(express.json());
 
 // API route to get full graph data

@@ -13,10 +13,12 @@ const GraphCanvas = () => {
     const [graphData, setGraphData] = useState({ nodes: [], links: [] });
     const graphRef = useRef();
 
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
+
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await axios.get('http://localhost:4000/api/graph');
+                const res = await axios.get(`${API_URL}/api/graph`);
                 // react-force-graph uses links instead of edges
                 setGraphData({
                     nodes: res.data.nodes,
