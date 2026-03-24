@@ -130,3 +130,8 @@ FRONTEND_URL=your_frontend_url
 Frontend example:
 
 VITE_API_URL=your_backend_url
+
+
+## AI Coding Session Logs
+
+AI-assisted development prompts and iteration logs are included in the `ai-logs/` folder.
