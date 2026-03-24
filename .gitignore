@@ -7,3 +7,6 @@ dist
 **/dist
 dist-ssr
 *.local
+
+.DS_Store
+**/.DS_Store
