@@ -22,18 +22,90 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.dashboard-card {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.dashboard-card:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  transform: translateY(-2px);
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.onboarding-step {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.5rem 0;
+}
+
+.onboarding-number {
+  background: rgba(59, 130, 246, 0.2);
+  color: #3b82f6;
+  width: 1.25rem;
+  height: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
 .chat-container {
-  height: 100vh;
-  width: 400px;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 10;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 50;
   display: flex;
   flex-direction: column;
 }
 
 .graph-container {
-  width: 100vw;
-  height: 100vh;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.suggested-prompt {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.suggested-prompt:hover {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.3);
+  color: #fff;
 }
